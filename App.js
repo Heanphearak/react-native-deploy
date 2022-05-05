@@ -22,7 +22,7 @@ const App = () => {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'light-content'} />
       <View style={styles.sectionContainer}>
-        <Text>Hello</Text>
+        <Text style={styles.text}>Hello You</Text>
       </View>
     </SafeAreaView>
   );
@@ -33,7 +33,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
+  },
+  text: {
+    fontFamily: 'WaterBrush-Regular',
   },
 });
 
