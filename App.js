@@ -10,6 +10,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import CodePush from 'react-native-code-push';
 
 const App = () => {
   const backgroundStyle = {
@@ -32,7 +33,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
+    backgroundColor: 'green',
   },
 });
 
-export default App;
+export default CodePush(App);
