@@ -13,8 +13,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		17D0ACD6441ED3DCFAB4261F /* libPods-Hello-HelloTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9792E4D4AC1BBF220EC29C07 /* libPods-Hello-HelloTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		39E8046FE033471A9043108B /* WaterBrush-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68E2456010146E0882E35A9 /* WaterBrush-Regular.ttf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +42,10 @@
 		7249ADDBA78E34761C5BB33B /* Pods-Hello-HelloTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-HelloTests.release.xcconfig"; path = "Target Support Files/Pods-Hello-HelloTests/Pods-Hello-HelloTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Hello/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9792E4D4AC1BBF220EC29C07 /* libPods-Hello-HelloTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hello-HelloTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A68E2456010146E0882E35A9 /* WaterBrush-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "WaterBrush-Regular.ttf"; path = "../assets/fonts/WaterBrush-Regular.ttf"; sourceTree = "<group>"; };
 		A914E2BAF0CCD08928AD0C41 /* Pods-Hello-HelloTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-HelloTests.debug.xcconfig"; path = "Target Support Files/Pods-Hello-HelloTests/Pods-Hello-HelloTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C54FA7AD598F1076E99772AC /* Pods-Hello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello.release.xcconfig"; path = "Target Support Files/Pods-Hello/Pods-Hello.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		A68E2456010146E0882E35A9 /* WaterBrush-Regular.ttf */ = {isa = PBXFileReference; name = "WaterBrush-Regular.ttf"; path = "../assets/fonts/WaterBrush-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +152,13 @@
 			sourceTree = "<group>";
 		};
 		96C6E0F72BB4429CA35D2BF5 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				A68E2456010146E0882E35A9 /* WaterBrush-Regular.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

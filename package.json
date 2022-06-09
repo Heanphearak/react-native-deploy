@@ -10,12 +10,17 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-navigation/material-top-tabs": "^6.2.1",
+    "@react-navigation/native": "^6.0.10",
     "appcenter": "^4.4.4",
     "appcenter-analytics": "^4.4.4",
     "appcenter-crashes": "^4.4.4",
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-code-push": "^7.0.4"
+    "react-native-code-push": "^7.0.4",
+    "react-native-pager-view": "^5.4.22",
+    "react-native-reanimated": "2.2.4",
+    "react-native-tab-view": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
