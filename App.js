@@ -37,12 +37,45 @@ const TabBar = [
   {key: 'Route121', title: 'strings.december1'},
 ];
 
+const TabName = [
+  'strings.years',
+  'strings.january',
+  'strings.february',
+  'strings.march',
+  'strings.april',
+  'strings.may',
+  'strings.june',
+  'strings.july',
+  'strings.august',
+  'strings.september',
+  'strings.october',
+  'strings.november',
+  'strings.december',
+  'strings.years1',
+  'strings.january1',
+  'strings.february1',
+  'strings.march1',
+  'strings.april1',
+  'strings.may1',
+  'strings.june1',
+  'strings.july1',
+  'strings.august1',
+  'strings.september1',
+  'strings.october1',
+  'strings.november1',
+  'strings.december1',
+];
+
 function MyTabBar({state, descriptors, navigation, position}) {
+  const initialActiveTab = 1;
+  const [active, setActive] = React.useState(initialActiveTab);
   const renderItem = ({item, index}) => {
-    console.log(index);
+    // console.log(initialActiveTab);
     const {options} = descriptors[item.key];
     const label = item?.name;
+    // let active = initialActiveTab;
     const isFocused = state.index === index;
+    // console.log(isFocused, index, state.index);
 
     const onPress = () => {
       const event = navigation.emit({
@@ -50,13 +83,15 @@ function MyTabBar({state, descriptors, navigation, position}) {
         target: item.key,
         canPreventDefault: true,
       });
-
       if (!isFocused && !event.defaultPrevented) {
+        console.log('ok');
+
         navigation.navigate(item.name);
       }
     };
 
     const onLongPress = () => {
+      console.log('long');
       navigation.emit({
         type: 'tabLongPress',
         target: item.key,
@@ -77,37 +112,46 @@ function MyTabBar({state, descriptors, navigation, position}) {
         onLongPress={onLongPress}
         style={{
           width: 'auto',
+          padding: 8,
           backgroundColor: bgColor,
-          paddingHorizontal: 16,
           marginHorizontal: 2,
-          borderRadius: 5,
-          justifyContent: 'center',
+          borderRadius: 6,
+          justifyContent: 'space-between',
           borderWidth: 0.5,
           borderColor: 'grey',
         }}>
         <Text style={{color: textColor}}>{label}</Text>
+        {isFocused ? (
+          <View
+            style={{
+              marginTop: 2,
+              backgroundColor: 'white',
+              borderRadius: 8,
+              width: 4,
+              height: 4,
+              alignSelf: 'center',
+            }}
+          />
+        ) : null}
       </TouchableOpacity>
     );
   };
-
   const ref = React.useRef(null);
   const index = state?.index;
 
   React.useEffect(() => {
     ref?.current?.scrollToIndex({index, animated: true, viewPosition: 0.5});
   }, [index]);
-
   return (
     <View>
       <FlatList
         ref={ref}
-        initialScrollIndex={0}
+        initialScrollIndex={index}
         keyExtractor={item => item.key}
         data={state?.routes}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
-          height: 45,
           padding: 1,
         }}
         renderItem={renderItem}
@@ -116,19 +160,19 @@ function MyTabBar({state, descriptors, navigation, position}) {
   );
 }
 
-function ScreenTab() {
-  console.log('hi');
+const ScreenTab = ({route}) => {
+  // console.log('===>', TabName.indexOf(route.name));
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Feed!</Text>
+      <Text>Feed!{TabName.indexOf(route.name)}</Text>
     </View>
   );
-}
+};
 
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="ScreenTab"
       tabBar={props => <MyTabBar {...props} />}>
       {TabBar.map((tab, index) => {
         return (
