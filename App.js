@@ -66,16 +66,12 @@ const TabName = [
   'strings.december1',
 ];
 
-function MyTabBar({state, descriptors, navigation, position}) {
-  const initialActiveTab = 1;
-  const [active, setActive] = React.useState(initialActiveTab);
+function MyTabBar({state, descriptors, navigation}) {
   const renderItem = ({item, index}) => {
-    // console.log(initialActiveTab);
     const {options} = descriptors[item.key];
     const label = item?.name;
-    // let active = initialActiveTab;
-    const isFocused = state.index === index;
-    // console.log(isFocused, index, state.index);
+
+    const isFocused = index === state.index;
 
     const onPress = () => {
       const event = navigation.emit({
@@ -84,14 +80,11 @@ function MyTabBar({state, descriptors, navigation, position}) {
         canPreventDefault: true,
       });
       if (!isFocused && !event.defaultPrevented) {
-        console.log('ok');
-
         navigation.navigate(item.name);
       }
     };
 
     const onLongPress = () => {
-      console.log('long');
       navigation.emit({
         type: 'tabLongPress',
         target: item.key,
@@ -137,7 +130,7 @@ function MyTabBar({state, descriptors, navigation, position}) {
     );
   };
   const ref = React.useRef(null);
-  const index = state?.index;
+  const index = state.index;
 
   React.useEffect(() => {
     ref?.current?.scrollToIndex({index, animated: true, viewPosition: 0.5});
@@ -147,6 +140,16 @@ function MyTabBar({state, descriptors, navigation, position}) {
       <FlatList
         ref={ref}
         initialScrollIndex={index}
+        onScrollToIndexFailed={info => {
+          const wait = new Promise(resolve => setTimeout(resolve, 500));
+          wait.then(() => {
+            ref.current?.scrollToIndex({
+              index: index,
+              animated: true,
+              viewPosition: 0.5,
+            });
+          });
+        }}
         keyExtractor={item => item.key}
         data={state?.routes}
         horizontal={true}
@@ -161,7 +164,6 @@ function MyTabBar({state, descriptors, navigation, position}) {
 }
 
 const ScreenTab = ({route}) => {
-  // console.log('===>', TabName.indexOf(route.name));
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Feed!{TabName.indexOf(route.name)}</Text>
@@ -172,7 +174,7 @@ const ScreenTab = ({route}) => {
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="ScreenTab"
+      initialRouteName="strings.march"
       tabBar={props => <MyTabBar {...props} />}>
       {TabBar.map((tab, index) => {
         return (
